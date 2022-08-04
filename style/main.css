@@ -1,0 +1,168 @@
+/* navbar and footer css index.html-------------------------*/
+*{
+    margin: 0%;
+}
+#navMain{
+    height: 120px;
+    width: 100%;
+    background-color: rgb(231, 8, 8);
+    border: 1px solid #cecece;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-end;
+    
+}
+#cartSection>a{
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    margin-right: 10px;
+    /* margin-bottom: 60px; */
+}
+#cameraSection>a{
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    /* margin-top: 90px; */
+    margin-right: 100px;
+}
+#homePageBody{
+    height: 1000px;
+    width: auto;
+    background-color: white;
+}
+#footerMain{
+    height: 180px;
+    width: auto;
+    background-color: navy;
+}
+
+/* camera.html - css  -------------------------------*/
+#cameraPageBody{
+    height: 2300px;
+    width: auto;
+    background-color: white;
+}
+#filterDisplay{
+    display:flex;
+    width: auto;
+    height: 100%;
+}
+#filter{
+    width: 15%;
+    height: 100%;
+    border: 1px solid #cecece;
+}
+#display{
+    width: 85%;
+    height: 100%;
+    max-height: auto;
+    border: 1px solid #E5E5E5;
+}
+#filterTitle,#displayTitle{
+    width: 100%;
+    height: 60px;
+    font-size: 25px;
+    border: 1px solid #E5E5E5;
+}
+
+/* camera.html -> inside id="displayCameras" ->css for each camera elem  ------------*/
+#displayCameras{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    row-gap: 25px;
+    column-gap: 5px;
+    margin: 15px auto 15px;
+
+}
+#cameraBox{
+    height: 420px;
+    width: 260px;
+    border: 1px solid #E5E5E5;
+    padding: 10px 12px 0px 10px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    /* position: relative; */
+}
+#cameraBox:hover{
+    box-shadow: rgba(1,1,1,0.15) 1px 1px 10px 0px;
+    cursor: pointer;
+}
+#imgNamePrizeBox{
+    height: 380px;
+    width: 100%;
+    /* border: 1px solid green; */
+
+}
+#imgNamePrizeBox>img{
+   height: 280px;
+   width:260px;
+   margin: 0px auto 5px;
+   /* border: 1px solid rgb(0, 30, 128); */
+
+}
+#cameraName{
+    font-size: 15px;
+    height:40px;
+    font-family: system-ui,'Segoe UI', Roboto, sans-serif;
+    text-align: left;
+    overflow: hidden;
+    cursor: pointer;
+    margin-bottom: 5px;
+    /* border: 1px solid red; */
+
+}
+#cameraName:hover{
+    color: red;
+}
+#priceBox{
+    display: flex;
+    /* border: 1px solid red; */
+    height: 35px;
+}
+#priceBox>p{
+    width: 35%;
+    height: 100%;
+    /* margin-bottom: 8px; */
+    margin-top: 5px;
+}
+#offerPrize{
+    color: navy;
+    font-size: 18px;
+    font-weight: bold;
+}
+#mrp{
+    color: grey;
+}
+#wishBox{
+    display: flex;
+    height: 40px;
+    /* position: absolute; */
+    /* z-index: +100px; */
+    /* border: 1px solid #E5E5E5; */
+    /* padding: 0px 20px 0px 20px; */
+}
+#compare{
+    width: 50%;
+    height: 100%;
+    border: 1px solid #E5E5E5;
+    /* text-align: center; */
+    /* padding: 10px 42px 11px 42px ; */
+    /* margin-left: -10px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#wishlist{
+    width: 50%;
+    height: 100%;
+    border: 1px solid #E5E5E5;
+    /* text-align: center; */
+    /* padding: 8px 42px 0px 41px ; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
