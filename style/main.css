@@ -65,6 +65,7 @@
     height: 60px;
     font-size: 25px;
     border: 1px solid #E5E5E5;
+    
 }
 
 /* camera.html -> inside id="displayCameras" ->css for each camera elem  ------------*/
@@ -165,4 +166,112 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+/* cameraDetail.html- css single product css  */
+#displayAll{
+    display: flex;
+    width: 100%;
+    height:auto;
+    border-bottom: 1px solid #E5E5E5;
+    border-top: 1px solid #E5E5E5;
+    margin-top: 15px;
+    padding: 15px 15px;
+}
+#displayImg{
+    width: 630px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+#displayImg>img{
+    margin-top: 20px;
+}
+#displayName{
+    height: 135px;
+    width: 870px;
+    border-bottom: 1px solid #e5e5e5;
+}
+#idTag{
+    margin: 10px 0 15px 5px;
+}
+#nameTag{
+    margin: 0 0 5px 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+#displayDetailMrp{
+    display: flex;
+}
+#displayDetail{
+    height: fit-content;
+    width: 436px;
+    padding: 10px 25px 20px 5px;
+    border-right: 1px solid #E5E5E5;
+}
+#displayMrp{
+    margin-bottom: 15px;
+    padding: 15px 15px 5px 10px;
+}
+#displayPincode{
+    margin-bottom: 15px;
+    padding: 15px 15px 5px 10px;
+    position: relative;
+}
+#displayPincode input{
+    width:280px;
+    height: 44px;
+    border-color: #003380;
+    border-radius: 6px;
+    outline: none;
+    padding: 0 10px;
+    font-size: 16px;
+}
+#displayPincode label{
+    position: absolute;
+    top: 8px;
+    left: 15px;
+    color: #0c5acf;
+    font-size: 15px;
+    padding: 0 5px;
+    background-color: white;
+}
+
+#cartBuy{
+    display: flex;
+    padding: 10px;
+}
+#addToCartCamDetail{
+    background-color: red;
+    height: 24px;
+    width: 144px;
+    border-radius: 4px;
+    padding: 10px 25px;
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+#addToCartCamDetail:hover{
+    background-color: #003380;
+    cursor: pointer;
+}
+#buyNowCamDetail{
+ 
+    height: 24px;
+    width: 144px;
+    border-radius: 4px;
+    padding: 10px 25px;
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    margin:0,10px;
+    background-color: #fc6027;
+    cursor: pointer;
 }
