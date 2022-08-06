@@ -1,4 +1,4 @@
-import { telgetData } from './tel_script/telgetData.js';
+import { telgetData } from './script/telgetData.js';
 
 let telImg = ["https://www.reliancedigital.in/medias/RD-CLP-Sansui-TV-banner-D.jpg?context=bWFzdGVyfGltYWdlc3w5OTI1MXxpbWFnZS9qcGVnfGltYWdlcy9oYTUvaDFkLzk4NTgyMjg4NDY2MjIuanBnfDBiNmU0Y2RkZjgwNjM3ZmFmYWZjNDEzNzE0MmQ5ZGZlNjIxMjJmNGY5YzZkYTZjY2VjODVkMTRjMTY2NTVmZGI",
 "https://www.reliancedigital.in/medias/LG-RD-CLP-Bannrer-Desktop.jpg?context=bWFzdGVyfGltYWdlc3wxMzExODl8aW1hZ2UvanBlZ3xpbWFnZXMvaDg4L2g1ZC85ODU3NjQ2NTU5MjYyLmpwZ3w1NWNmZWVmOGI4YmY5NDc0ZWMwMGM2Y2Q4MDFmM2RlNzI4NzRlYjBmMjA3MmNhZjQ5YmEwMGVlYTdhYmIwZTdk",
@@ -9,6 +9,8 @@ let telImg = ["https://www.reliancedigital.in/medias/RD-CLP-Sansui-TV-banner-D.j
 ]
 
 let detail = document.getElementById('all_teldetails');
+let page2 = document.querySelector('.sec_page');
+let page1 = document.querySelector('.first_page');
 
 let tel = document.querySelector(".tel_img");
 let x = 0;
@@ -22,25 +24,12 @@ setInterval(() => {
 
 }, 3000);
 
-let goLocal = (id) =>{
-
-  let obj = {
-    productKey : "television",
-    productId : id
-  }
-  localStorage.setItem("product",JSON.stringify(obj));
-  location.href="#personalDetail";
-}
-
 
 let displayTeldata = (data) => {
-
+  detail.innerText = "";
   data.map((res) => {
     let mdiv = document.createElement('div');
     let div = document.createElement('div');
-    div.addEventListener('click',()=>{
-      goLocal(res.id);
-    });
     let img = document.createElement('img');
     img.src = res.imglink;
     let title = document.createElement('p');
@@ -394,19 +383,47 @@ let showClicksize = () => {
 click_size.addEventListener('click', showClicksize);
 
 
+
 // <--------------------------displaysize end----------------------->
 
 
 let teldData = async () => {
   try {
-    let data = await telgetData('http://localhost:3000/television');
+    let data = await telgetData('http://localhost:3000/television?_page1&_limit=20');
     displayTeldata(data);
+    page2.style.backgroundColor = "white";
+    page2.style.color = "black";
+
+    page1.style.backgroundColor = "blue";
+    page1.style.color = "white";
   } catch (error) {
     console.log(error);
   }
 
 }
+
+
+
+let teldData2 = async () => {
+  try {
+    let data = await telgetData('http://localhost:3000/television?_page=2&limit_20');
+    displayTeldata(data);
+    page1.style.backgroundColor = "white";
+    page1.style.color = "black";
+
+    page2.style.backgroundColor = "blue";
+    page2.style.color = "white";
+    
+  } catch (error) {
+    console.log(error);
+  }
+
+}
+
 window.addEventListener('load', teldData);
+page2.addEventListener('click', teldData2);
+page1.addEventListener('click',teldData);
+
 
 
 
@@ -426,6 +443,15 @@ function check_box_val(selector, type) {
   selector.forEach(function(ele) {
     if (ele.checked == true) {
       item.push(`${type}=${ele.value}`);
+    }
+  })
+  return item;
+}
+function check_box_val1(selector, type) {
+  let item = [];
+  selector.forEach(function(ele) {
+    if (ele.checked == true) {
+      item.push(`${type}${ele.value}`);
     }
   })
   return item;
@@ -473,7 +499,7 @@ let discount_list = document.querySelectorAll('[name="discount"]');
  * 
  * *******************************/
 async function filter_data(minprice=0,maxprice=0) {
-  let url = 'http://localhost:3000/television?';
+  let url = 'http://localhost:3000/television?_page=1&_limit=20';
   
   let brand_filter = check_box_val(brand_list, 'brand');
   let feature_filter = check_box_val(feature_list, 'feature');
@@ -485,7 +511,7 @@ async function filter_data(minprice=0,maxprice=0) {
   let displayType=check_box_val(displayType_list, 'displayType');
   let displaySize=check_box_val(displaySize_list, 'displaySize');
  
-  let discount=check_box_val(discount_list, 'discount').join();
+  let discount=check_box_val1(discount_list, 'discount').join('&');
   let price_filter="";  
  if(minprice!=0 && maxprice!=0){
   price_filter=`&dealprice_gte=${minprice}&dealprice_lte=${maxprice}`;
@@ -500,7 +526,7 @@ if(short_filter!=""){
   short_filter+'&';
 }
  let final_filter=final_array.join('&');
-url+=short_filter+'&'+final_filter+price_filter+discount;
+ url+= '&' + short_filter + '&'+final_filter+ '&'+price_filter+ '&'+discount;
 //console.log(short_filter)
 //console.log(url);
   try {
@@ -563,7 +589,7 @@ short_filter.addEventListener('change',async function() {
 var slider = document.getElementById('slider');
 
 noUiSlider.create(slider, {
-    start: [5000,50000],
+    start: [5000,150000],
     connect: true,
     range: {
         'min': 5000,

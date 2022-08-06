@@ -24,7 +24,7 @@
 #tel_allshow{
  margin-top: 30px;
  width: 100%;
- border: 2px solid red;
+ border: 2px solid rgb(121, 119, 119);
  display: grid;
  grid-template-columns: 18% 82%;
 
@@ -32,7 +32,9 @@
 /* <-----------------te...filter part-------------> */
 .tel_allshow_filter{
 
-    border: 2px solid rgb(121, 119, 119);
+    border-left: 2px solid rgb(121, 119, 119);
+    border-right: 2px solid rgb(121, 119, 119);
+    border-bottom: 2px solid rgb(121, 119, 119);
 }
 
 
@@ -488,3 +490,31 @@ text-decoration: line-through;
     font-weight: 500;
 }
 
+#page_number{
+    display: flex;
+    flex-direction: row;
+    border-top: 2px solid #4b4b4a;
+    border-bottom: 2px solid #4b4b4a;
+    align-items: center;
+    margin: 40px 0px 20px 0px;
+
+}
+#page_number > p{
+    margin-left: 8px;
+    font-weight: 600;
+    border-radius:50%;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+#page_number > p:hover{
+    color: white;
+    background-color: rgb(4, 4, 236);
+    border-radius:50%;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+}
