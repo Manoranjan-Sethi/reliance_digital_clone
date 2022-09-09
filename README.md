@@ -1,7 +1,7 @@
 # Clone of reliancedigital.in
 
-This was our project for Unit-5 Construct week at Masai Shcool.
-Our target was to complete all main functionality of e-commerce website have, such as sing up to till to the byuing of a product.
+This was our project for Unit-5 Construct week at Masai School.
+Our target was to complete all main functionality of e-commerce website have, such as to complete the flow buying of a product.
 We have completed this project in 5 days.
 
 - [Click here](https://glistening-taffy-4f5efd.netlify.app) to see preview of our project.
